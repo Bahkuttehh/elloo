@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Out With Me?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #b0c4de;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+    .container {
+      background-color: #f0f8ff;
+      width: 300px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: relative;
+    }
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .subheading {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .button {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.2em;
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    .button:hover {
+      transform: scale(1.1);
+    }
+    .yes-button {
+      background-color: #88c0d0;
+    }
+    .no-button {
+      background-color: #ff69b4;
+    }
+    .cloud, .heart {
+      position: absolute;
+      font-size: 1.5em;
+      color: #fff;
+    }
+    .cloud1 { top: 10px; left: 20px; }
+    .cloud2 { top: 20px; right: 30px; }
+    .cloud3 { bottom: 40px; left: 30px; color: #ff6f91; }
+    .cloud4 { bottom: 60px; right: 50px; color: #ff6f91; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Profile GIF -->
+    <img src="data:image/jpeg;base64,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" alt="Profile GIF" class="profile-img">
+    
+    <!-- Main Message -->
+    <h1>Hi! xxxxx,<br><br> xxxxxxx 🐔🐴🐮🦝🐰🐑</h1>
+    <br>
+    
+    <!-- Buttons -->
+    <div class="button-container">
+      <button class="button yes-button" onclick="alert('See you!! On 16/12/2024. Will Pick You Up 😎')">OKAY</button>
+      <button class="button no-button" onclick="alert('No No No. Please click again 😝')">Nopee</button>
+    </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="cloud cloud1">🍛🐶🃏</div>
+  <div class="cloud cloud2">🍔🍤⛳</div>
+  <div class="cloud cloud3">✈️✈️✈️</div>
+  <div class="cloud cloud4">☕🃏🛣️</div>
+</body>
+</html>
